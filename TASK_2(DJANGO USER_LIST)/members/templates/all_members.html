@@ -1,0 +1,65 @@
+{% extends "master.html" %}
+
+{% block title %}
+  List of all members
+{% endblock %}
+
+
+{% block content %}
+<style>
+ body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  background-image: url("https://celes.club/uploads/posts/2022-05/thumbs/1653077709_63-celes-club-p-dzhoker-fon-krasivie-72.jpg");
+
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-text {
+  background-color: white; /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: #ffffff;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+a:visited{
+color: #ffffff;
+}
+ul li{
+    list-style: inside;
+}
+  </style>
+
+<div class="bg-image"></div>
+  <div class="bg-text">
+ <p><a href="/">HOME</a></p>
+  <h1>List of registered members</h1>
+  <ul class="leaders">
+    {% for x in mymembers %}
+    <br>
+      <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+    {% endfor %}
+  </ul>
+  </div>
+{% endblock %}
